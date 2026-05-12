@@ -13,22 +13,22 @@ jobs:
         with:
           python-version: "3.11"
       - name: MCP Risk Linter
-        uses: auraoneai/mcp-risk-linter@v0.1.3
+        uses: auraoneai/mcp-risk-linter@v0.1.4
         with:
           path: fixtures/mcp/safe_server
           fail-on: high
       - name: LeRobot Quality Gates
-        uses: auraoneai/lerobot-quality-gates@v0.1.3
+        uses: auraoneai/lerobot-quality-gates@v0.1.4
         with:
           path: fixtures/lerobot/mock_lerobot_v3_good
           fail-on: high
       - name: A2A Contract Test
-        uses: auraoneai/a2a-contract-test@v0.1.3
+        uses: auraoneai/a2a-contract-test@v0.1.4
         with:
           agent-card: fixtures/a2a/passing_agent/agent-card.json
           output: a2a-contract-report.md
       - name: Prompt Rubric Drift
-        uses: auraoneai/prompt-rubric-drift@v0.1.3
+        uses: auraoneai/prompt-rubric-drift@v0.1.4
         with:
           before: fixtures/drift/before
           after: fixtures/drift/after

@@ -13,12 +13,12 @@ jobs:
         with:
           python-version: "3.11"
       - name: MCP Risk Linter
-        uses: auraoneai/mcp-risk-linter@v0.1.1
+        uses: auraoneai/mcp-risk-linter@v0.1.2
         with:
           path: fixtures/mcp/safe_server
           fail-on: high
       - name: LeRobot Quality Gates
-        uses: auraoneai/lerobot-quality-gates@v0.1.1
+        uses: auraoneai/lerobot-quality-gates@v0.1.2
         with:
           path: fixtures/lerobot/mock_lerobot_v3_good
           fail-on: high

@@ -4,6 +4,10 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   smoke:
     runs-on: ubuntu-latest
@@ -17,6 +21,17 @@ jobs:
         with:
           path: fixtures/mcp/safe_server
           fail-on: high
+      - name: MCP Risk Linter SARIF
+        uses: auraoneai/mcp-risk-linter@v0.1.5
+        with:
+          path: fixtures/mcp/safe_server
+          fail-on: none
+          format: sarif
+          output: mcp-risk.sarif
+      - name: Upload MCP SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: mcp-risk.sarif
       - name: LeRobot Quality Gates
         uses: auraoneai/lerobot-quality-gates@v0.1.5
         with:
